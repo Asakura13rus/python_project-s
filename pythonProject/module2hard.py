@@ -1,12 +1,12 @@
-n = int(input("Введите число от 3 до 20: "))
+for n in range(3, 21):
+    result = ""
+    used_pairs = set() 
 
-pairs = []
+    for i in range(1, n):
+        for j in range(1, n):
+            if i != j and (i + j) % n == 0:
+                if (j, i) not in used_pairs:
+                    result += f"{i}{j}"
+                    used_pairs.add((i, j))
 
-for i in range(1, n):
-    for j in range(i + 1, n):
-        if (i + j) % n == 0:
-            pairs.append(f"{i}{j}")
-
-result = ''.join(pairs)
-
-print(f"{n} - {result}")
+    print(f"{n} - {result}")
